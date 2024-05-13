@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34902.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentPipe.Core", "FluentPipe.Core\FluentPipe.Core.csproj", "{A9D5FDA6-242F-4890-94E6-D8FF89FDF79D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{7995FEBA-017B-46B3-A6FB-F282059F3095}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9D5FDA6-242F-4890-94E6-D8FF89FDF79D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9D5FDA6-242F-4890-94E6-D8FF89FDF79D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9D5FDA6-242F-4890-94E6-D8FF89FDF79D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9D5FDA6-242F-4890-94E6-D8FF89FDF79D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7995FEBA-017B-46B3-A6FB-F282059F3095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7995FEBA-017B-46B3-A6FB-F282059F3095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7995FEBA-017B-46B3-A6FB-F282059F3095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7995FEBA-017B-46B3-A6FB-F282059F3095}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {245096E6-193D-481D-9DE3-D4D2EC87D77B}
+	EndGlobalSection
+EndGlobal
