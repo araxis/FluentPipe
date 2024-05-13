@@ -42,6 +42,15 @@ public class PipelineBuilder<TContext, TResult>(IStepFactory stepFactory)
         return this;
     }
 
+    public PipelineBuilder<TContext, TResult> Fork(Predicate<TContext> predicate, Func<PipelineBuilder<TContext, TResult>, PipelineBuilder<TContext, TResult>> action)
+    {
+        var forkPipelineBuilder = new PipelineBuilder<TContext, TResult>(_stepFactory);
+        forkPipelineBuilder.Steps.AddRange(Steps);
+        var internalBuilder = action(new PipelineBuilder<TContext, TResult>(_stepFactory));
+        forkPipelineBuilder.Steps.Add(new PipeLienStep<TContext,TResult>(predicate, internalBuilder));
+        return forkPipelineBuilder;
+    }
+
     public PipelineBuilder<TContext, TResult> CompensateWith<T>()
         where T : IStep<TContext>
     {

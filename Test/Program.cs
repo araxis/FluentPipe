@@ -11,6 +11,8 @@ services.AddTransient<Step3>();
 services.AddTransient<Step4>();
 services.AddTransient<Step5>();
 services.AddTransient<Step6>();
+services.AddTransient<Step7>();
+services.AddTransient<Step8>();
 var sp = services.BuildServiceProvider();
 var factory = new StepFactory(sp);
 var pipelineBuilder = new PipelineBuilder<Context, string>(factory);
@@ -18,10 +20,8 @@ var pipeline = pipelineBuilder
     .Add<Step1>()
     .Add<Step2>()
     .AddIfElse<Step3,Step4>(c => c.Branch)
-    .AddIf(c=>c.Fork,b=>
-        b
-            .Add<Step5>()
-            .Add<Step6>())
+    .Fork(c=>c.Fork,b=>b.Add<Step7>())
+    .Add<Step8>()
     .Build();
 var result = await pipeline.InvokeAsync(new Context("test"));
 Console.WriteLine(result);
@@ -85,6 +85,23 @@ public class Step6 : IStep<Context>
     public ValueTask ExecuteAsync(Context context, CancellationToken cancellationToken = default)
     {
         Console.WriteLine("Step6");
+        return ValueTask.CompletedTask;
+    }
+}
+
+public class Step7 : IStep<Context>
+{
+    public ValueTask ExecuteAsync(Context context, CancellationToken cancellationToken = default)
+    {
+        Console.WriteLine("Step7");
+        return ValueTask.CompletedTask;
+    }
+}
+public class Step8 : IStep<Context>
+{
+    public ValueTask ExecuteAsync(Context context, CancellationToken cancellationToken = default)
+    {
+        Console.WriteLine("Step8");
         return ValueTask.CompletedTask;
     }
 }
